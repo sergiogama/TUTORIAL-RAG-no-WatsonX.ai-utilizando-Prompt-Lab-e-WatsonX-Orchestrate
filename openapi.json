@@ -1,0 +1,74 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "WatsonX.ai - RAG integration",
+    "version": "1.0.0",
+    "description": "API para interagir com serviço do watsonx.ai"
+  },
+  "servers": [
+    {
+      "url": "https://function-qt.1xm3vlm9kwfm.us-south.codeengine.appdomain.cloud"
+    }
+  ],
+  "paths": {
+    "/": {
+      "post": {
+        "summary": "Consulta serviço no WatsonX.ai",
+        "description": "Envia uma mensagem do usuário e recebe uma resposta do modelo de IA.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "mensagem": {
+                    "type": "string",
+                    "example": "Olá! Preciso de uma ajuda"
+                  }
+                },
+                "required": ["mensagem"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Resposta bem-sucedida",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "response": {
+                      "type": "string",
+                      "description": "Resposta gerada pelo modelo WatsonX.ai"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro ao processar solicitação",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "details": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
