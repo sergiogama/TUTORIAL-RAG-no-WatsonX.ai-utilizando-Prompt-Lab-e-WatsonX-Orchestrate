@@ -10,7 +10,7 @@ def main(params):
     # Step 2: Gerar o token IAM
     iam_url = "iam.cloud.ibm.com"
     iam_endpoint = "/identity/token"
-    apikey = "zxRt6HxOkt-eSVrAl_fR3bMsACYQRZiwDk4R9dkPXk1F"
+    apikey = "<API Key>"
 
     # Preparar os dados e cabeçalhos
     iam_payload = urllib.parse.urlencode({
